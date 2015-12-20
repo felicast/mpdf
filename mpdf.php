@@ -12509,7 +12509,8 @@ function GetFullPath(&$path,$basepath='') {
 			// mPDF 5.7.2
 			$root = '';
 			if (!empty($tr['scheme'])) { $root .= $tr['scheme'].'://'; }
-			$root .= $tr['host'];
+			//$root .= $tr['host'];
+			$root .= isset($tr['host']) ? $tr['host'] : $tr['path'];
 			$root .= ((isset($tr['port']) && $tr['port']) ? (':'.$tr['port']) : '');	// mPDF 5.7.3
 			$path = $root . $path;
 		}
